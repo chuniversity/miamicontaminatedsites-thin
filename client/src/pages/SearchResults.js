@@ -32,7 +32,7 @@ class SearchResults extends React.Component {
     const maxLongitude = lng + radiusDegrees
     const minLatitude = lat - radiusDegrees
     const maxLatitude = lat + radiusDegrees
-    const url = `/api/sites/${minLongitude}/${minLatitude}/${maxLongitude}/${maxLatitude}`
+    const url = `https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/ContaminatedSite_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&geometry=${minLongitude}%2C${minLatitude}%2C${maxLongitude}%2C${maxLatitude}&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outSR=4326&f=json`
     axios.get(url)
     .then(response => {
       const { data } = response;
